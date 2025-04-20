@@ -1,21 +1,16 @@
 package org.svalero.tvmaze.model;
-
-import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Show {
+@AllArgsConstructor
+@Data
+public class Episode {
     private int id;
     private String name;
     private String description;
-    private String language;
-    private String premiered;
-
-
-    @SerializedName("image")
-    private Image image;
+    private int season;
+    private int number;
+    private String airDate;
 }

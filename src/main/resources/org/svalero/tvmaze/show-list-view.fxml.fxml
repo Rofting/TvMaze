@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.svalero.tvmaze.controller.ShowListController">
+
+    <VBox prefWidth="600" spacing="10" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="10">
+        <Label text="Lista de Series" />
+        <HBox spacing="10">
+            <TextField fx:id="searchField" promptText="Buscar serie..."/>
+            <Button text="Buscar" onAction="#onSearch"/>
+        </HBox>
+        <TableView fx:id="showTable">
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Nombre" />
+                <TableColumn fx:id="languageColumn" text="Idioma" />
+                <TableColumn fx:id="premieredColumn" text="Estreno" />
+            </columns>
+        </TableView>
+
+        <Label text="Episodios" />
+      <TextField layoutX="10.0" layoutY="38.0" />
+        <TableView fx:id="episodeTable">
+            <columns>
+                <TableColumn fx:id="seasonColumn" text="Temporada" />
+                <TableColumn fx:id="numberColumn" text="Episodio" />
+                <TableColumn fx:id="episodeNameColumn" text="Nombre" />
+                <TableColumn fx:id="airdateColumn" text="Fecha" />
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>
