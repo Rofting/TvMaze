@@ -15,7 +15,5 @@ public class Show {
     private String language;
     private String premiered;
 
-
-    @SerializedName("image")
-    private Image image;
+    private ShowImage image;
 }
