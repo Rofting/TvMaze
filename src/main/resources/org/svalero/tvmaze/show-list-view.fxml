@@ -19,6 +19,7 @@
         </HBox>
         <TableView fx:id="showTable">
             <columns>
+                <TableColumn fx:id="imageColumn" text="Imagen" prefWidth="120"/>
                 <TableColumn fx:id="nameColumn" text="Nombre" />
                 <TableColumn fx:id="languageColumn" text="Idioma" />
                 <TableColumn fx:id="premieredColumn" text="Estreno" />

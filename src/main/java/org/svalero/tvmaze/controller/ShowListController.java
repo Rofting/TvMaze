@@ -1,6 +1,7 @@
 package org.svalero.tvmaze.controller;
 
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,11 +9,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import org.svalero.tvmaze.model.Episode;
 import org.svalero.tvmaze.model.SearchResult;
 import org.svalero.tvmaze.model.Show;
 import org.svalero.tvmaze.service.ApiClient;
 import org.svalero.tvmaze.service.TVMazeService;
+import javafx.scene.image.Image;
 
 import java.util.List;
 
@@ -30,6 +33,9 @@ public class ShowListController {
     @FXML private TableColumn<Episode, String> airdateColumn;
     @FXML private TextField searchField;
 
+    @FXML
+    private TableColumn<Show, ImageView> imageColumn;
+
     private final TVMazeService service = ApiClient.getApiService();
 
     @FXML
@@ -43,6 +49,20 @@ public class ShowListController {
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("number"));
         episodeNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         airdateColumn.setCellValueFactory(new PropertyValueFactory<>("airdate"));
+
+
+        imageColumn.setCellValueFactory(data -> {
+            String imageUrl = data.getValue().getImage() != null ? data.getValue().getImage().getMedium() : null;
+            ImageView imageView = new ImageView();
+
+            if (imageUrl != null) {
+                Image image = new Image(imageUrl, 100, 150, true, true);
+                imageView.setImage(image);
+            }
+
+            return new SimpleObjectProperty<>(imageView);
+        });
+
 
         // Llamar a la API para cargar las series
         service.getShows()
