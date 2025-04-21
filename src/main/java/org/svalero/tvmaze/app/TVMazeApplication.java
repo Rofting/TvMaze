@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class TVMazeApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("show-list-view.fxml.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/svalero/tvmaze/show-list-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        stage.setTitle("TVMaze Explorer");
         stage.setScene(scene);
         stage.show();
     }
