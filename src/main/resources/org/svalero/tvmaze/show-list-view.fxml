@@ -5,18 +5,27 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
+
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.svalero.tvmaze.controller.ShowListController">
 
     <VBox prefWidth="600" spacing="10" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="10">
         <Label text="Lista de Series" />
+
         <HBox spacing="10">
             <TextField fx:id="searchField" promptText="Buscar serie..."/>
             <Button text="Buscar" onAction="#onSearch"/>
         </HBox>
+
+        <HBox spacing="10">
+            <TextField fx:id="yearField" promptText="Filtrar por año..."/>
+            <Button text="Filtrar por Año" onAction="#onFilterByYear"/>
+        </HBox>
+
+        <Button text="Exportar a CSV" fx:id="exportButton" onAction="#onExport"/>
+
         <TableView fx:id="showTable">
             <columns>
                 <TableColumn fx:id="imageColumn" text="Imagen" prefWidth="120"/>
@@ -27,7 +36,7 @@
         </TableView>
 
         <Label text="Episodios" />
-      <TextField layoutX="10.0" layoutY="38.0" />
+
         <TableView fx:id="episodeTable">
             <columns>
                 <TableColumn fx:id="seasonColumn" text="Temporada" />
@@ -38,3 +47,4 @@
         </TableView>
     </VBox>
 </AnchorPane>
+
